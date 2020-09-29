@@ -11,12 +11,14 @@ def solution(A, B, C):
     result = []
     string = ''
     recur(0, 0, 0, A, B, C, string, result)
-    result.sort(key=len, reverse=True)
-    return result[0]
-    
-print(solution(6,1,1))
-print(solution(1,3,1))
-print(solution(0,1,8))
+    max_ = 0
+    res = []
+    for r in result: # filter short element
+        if len(r) > max_:
+            max_ = len(r)
+            res.append(r)
+    res.sort(key=len, reverse=True)
+    return res[0]
 
 # aabaacaa
 # abbcb
